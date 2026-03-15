@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ui.fx.UsersController"
+            prefWidth="900"
+            prefHeight="500"
+            style="-fx-padding: 20;">
+
+    <top>
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Label text="Filter:"/>
+            <ComboBox fx:id="comboUserType" prefWidth="150"/>
+            <Button text="Refresh" onAction="#handleRefresh"/>
+        </HBox>
+    </top>
+
+    <center>
+        <HBox spacing="20">
+
+            <TableView fx:id="tableUsers"
+                       HBox.hgrow="ALWAYS"
+                       prefWidth="550">
+                <columns>
+                    <TableColumn fx:id="colId"        text="ID"        prefWidth="50"/>
+                    <TableColumn fx:id="colUsername" text="Username"  prefWidth="120"/>
+                    <TableColumn fx:id="colEmail"    text="Email"     prefWidth="160"/>
+                    <TableColumn fx:id="colType"     text="Type"      prefWidth="70"/>
+
+                    <TableColumn fx:id="colLastName"   text="Last name"    prefWidth="110"/>
+                    <TableColumn fx:id="colFirstName"  text="First name"   prefWidth="110"/>
+                    <TableColumn fx:id="colOccupation" text="Occupation"   prefWidth="120"/>
+                    <TableColumn fx:id="colEmpathy"    text="Empathy"      prefWidth="80"/>
+
+                    <TableColumn fx:id="colDuckKind" text="Duck type" prefWidth="90"/>
+                    <TableColumn fx:id="colSpeed"    text="Speed"     prefWidth="80"/>
+                    <TableColumn fx:id="colStamina"  text="Stamina"   prefWidth="80"/>
+                </columns>
+            </TableView>
+
+            <VBox spacing="10" prefWidth="280">
+
+                <Label text="Add User"
+                       style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+
+                <HBox spacing="10">
+                    <Label text="Type:"/>
+                    <ComboBox fx:id="comboType" prefWidth="160"/>
+                </HBox>
+
+                <GridPane fx:id="formGrid" hgap="10" vgap="10"/>
+
+                <Button text="Add User"
+                        onAction="#addUser"
+                        prefWidth="120"/>
+
+                <Separator/>
+
+                <Button text="Delete selected"
+                        onAction="#deleteUser"
+                        prefWidth="140"/>
+
+            </VBox>
+
+        </HBox>
+    </center>
+
+    <bottom>
+        <HBox alignment="CENTER" spacing="10" style="-fx-padding: 10;">
+            <Button fx:id="btnPrev" text="Previous" onAction="#prevPage"/>
+            <Label fx:id="lblPage" text="Page 1 / 1"/>
+            <Button fx:id="btnNext" text="Next" onAction="#nextPage"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>

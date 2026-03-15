@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ui.fx.MainMenuController"
+            fx:id="root">
+
+    <top>
+        <HBox alignment="CENTER_RIGHT" spacing="10" style="-fx-padding: 10;">
+            <Button text="Logout" onAction="#handleLogout"/>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="15" alignment="CENTER">
+            <Button text="Profile" onAction="#openProfile" prefWidth="220"/>
+            <Button text="Users"             onAction="#openUsers"          prefWidth="220"/>
+            <Button text="Friendships"       onAction="#openFriendships"    prefWidth="220"/>
+            <Button text="Friend Requests"   onAction="#openFriendRequests" prefWidth="220"/>
+            <Button text="Ducks"             onAction="#openDucks"          prefWidth="220"/>
+            <Button text="Race Event"            onAction="#openRaceEvent"  prefWidth="220"/>
+            <Button text="Messages"          onAction="#openMessages"       prefWidth="220"/>
+        </VBox>
+    </center>
+
+</BorderPane>

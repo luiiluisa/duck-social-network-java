@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ui.fx.FriendRequestsController"
+            fx:id="root"
+            prefWidth="1100" prefHeight="650">
+
+    <top>
+        <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-padding: 10;">
+            <Label fx:id="lblMe" text="Logged: -" style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <Button text="Refresh" onAction="#handleRefresh"/>
+        </HBox>
+    </top>
+
+    <center>
+        <HBox spacing="20" style="-fx-padding: 10;">
+            <!-- LEFT: Send Friend Request -->
+            <VBox spacing="10" prefWidth="320">
+                <Label text="Send Friend Request" style="-fx-font-weight: bold; -fx-font-size: 16px;"/>
+
+                <TextField fx:id="tfSearch"
+                           promptText="search username/email"
+                           onKeyReleased="#handleSearch"/>
+
+                <ListView fx:id="listUsers" VBox.vgrow="ALWAYS"/>
+
+                <Button text="Send Request"
+                        onAction="#handleSendRequest"
+                        prefWidth="150"/>
+
+                <Label fx:id="lblSendInfo" text="" wrapText="true"/>
+            </VBox>
+
+            <!-- MIDDLE: Pending Requests -->
+            <VBox spacing="10" prefWidth="380">
+                <Label text="Pending Requests (for me)" style="-fx-font-weight: bold; -fx-font-size: 16px;"/>
+
+                <ListView fx:id="listPending" VBox.vgrow="ALWAYS"/>
+
+                <HBox spacing="10" alignment="CENTER">
+                    <Button text="Accept" onAction="#handleAccept" prefWidth="150"/>
+                    <Button text="Reject" onAction="#handleReject" prefWidth="150"/>
+                </HBox>
+            </VBox>
+
+            <!-- RIGHT: My Friends -->
+            <VBox spacing="10" prefWidth="300">
+                <Label text="My Friends" style="-fx-font-weight: bold; -fx-font-size: 16px;"/>
+
+                <ListView fx:id="listFriends" VBox.vgrow="ALWAYS"/>
+
+                <Button text="Unfriend"
+                        onAction="#handleUnfriend"
+                        prefWidth="150"/>
+            </VBox>
+        </HBox>
+    </center>
+
+</BorderPane>

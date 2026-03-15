@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ui.fx.CommunitiesController"
+            prefWidth="600"
+            prefHeight="400"
+            style="-fx-padding: 20;">
+
+    <top>
+        <VBox spacing="10">
+            <Label text="Communities"
+                   style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Number of communities:"/>
+                <Label fx:id="labelNumCommunities" text="-"/>
+                <Button text="Compute" onAction="#handleShowNumCommunities"/>
+            </HBox>
+
+            <Button text="Show most sociable community"
+                    onAction="#handleShowMostSociable"/>
+        </VBox>
+    </top>
+
+    <center>
+        <TableView fx:id="tableCommunity" prefHeight="260">
+            <columns>
+                <TableColumn fx:id="colCommId"        text="ID"        prefWidth="60"/>
+                <TableColumn fx:id="colCommUsername" text="Username"  prefWidth="150"/>
+                <TableColumn fx:id="colCommEmail"    text="Email"     prefWidth="200"/>
+                <TableColumn fx:id="colCommType"     text="Type"      prefWidth="80"/>
+            </columns>
+        </TableView>
+    </center>
+
+</BorderPane>

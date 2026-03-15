@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ui.fx.RaceEventController"
+            fx:id="root"
+            prefWidth="1000" prefHeight="650">
+
+    <top>
+        <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-padding: 10;">
+            <Label fx:id="lblMe" text="Logged: -" style="-fx-font-weight: bold;"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <Button fx:id="btnSubscribe" text="Subscribe" onAction="#handleSubscribe"/>
+            <Button fx:id="btnUnsubscribe" text="Unsubscribe" onAction="#handleUnsubscribe"/>
+            <Button text="Refresh Ducks" onAction="#handleRefreshDucks"/>
+            <Button text="Clear Selection" onAction="#handleClearSelection"/>
+
+        </HBox>
+    </top>
+
+    <center>
+        <SplitPane dividerPositions="0.45">
+            <!-- LEFT: Duck selection -->
+            <VBox spacing="10" style="-fx-padding: 10;">
+                <Label text="Select SWIMMING ducks (manual)"
+                       style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+
+                <HBox spacing="8">
+                    <TextField fx:id="tfSearchDuck" promptText="search username/email" HBox.hgrow="ALWAYS"/>
+                    <Button text="Search" onAction="#handleSearchDucks"/>
+                </HBox>
+
+                <ListView fx:id="listDucks" VBox.vgrow="ALWAYS"/>
+
+                <Label fx:id="lblSelected" text="Selectate: 0"/>
+            </VBox>
+
+            <!-- RIGHT: Distances + Start + Results -->
+            <VBox spacing="10" style="-fx-padding: 10;">
+                <Label text="Distances (space separated, positive numbers)"
+                       style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+
+                <TextField fx:id="tfDistances" promptText="ex: 100 80 50"/>
+
+                <HBox spacing="10">
+                    <Button text="Start Race" onAction="#handleStartRace" prefWidth="150"/>
+                    <Button text="Clear Distances" onAction="#handleClearDistances" prefWidth="150"/>
+                </HBox>
+
+                <Label text="Last results:" style="-fx-font-size: 13px; -fx-font-weight: bold;"/>
+                <TextArea fx:id="taResults" editable="false" wrapText="true" VBox.vgrow="ALWAYS"/>
+            </VBox>
+        </SplitPane>
+    </center>
+
+</BorderPane>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ui.fx.DucksController">
+
+    <top>
+        <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-padding: 10;">
+            <Label text="Tip rață:" />
+            <ComboBox fx:id="comboDuckType" prefWidth="150"/>
+        </HBox>
+    </top>
+
+    <center>
+        <TableView fx:id="tableDucks" prefHeight="400">
+            <columns>
+                <TableColumn fx:id="colId"      text="ID"         prefWidth="50"/>
+                <TableColumn fx:id="colUser"    text="Username"   prefWidth="120"/>
+                <TableColumn fx:id="colType"    text="Tip"        prefWidth="100"/>
+                <TableColumn fx:id="colSpeed"   text="Viteză"     prefWidth="80"/>
+                <TableColumn fx:id="colStamina" text="Rezistență" prefWidth="100"/>
+            </columns>
+        </TableView>
+    </center>
+
+    <bottom>
+        <HBox alignment="CENTER" spacing="10" style="-fx-padding: 10;">
+            <Button fx:id="btnPrev" text="Previous" onAction="#prevPage"/>
+            <Label fx:id="lblPage" text="Page 1 / 1"/>
+            <Button fx:id="btnNext" text="Next" onAction="#nextPage"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>
